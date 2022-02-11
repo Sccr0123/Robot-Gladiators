@@ -5,17 +5,21 @@ var playerAttack = 10;
 var playerMoney = 10
 
 //Creates the enemy robot stats
-var enemyName = "Roboto";
+var enemyNames = ["Roboto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
+//Creates rounds
+var rounds = 0;
+
+//Creates fight()
 var fight = function() {
     window.alert("Welcome To Robot Gladiators!");
 
     //Fight or Skip
     var promptFight = window.prompt("Would you like to FIGHT or SKIP this round? Enter 'FIGHT' or 'SKIP' to choose.");
 
-    if (promptFight = "FIGHT" || promptFight = "fight") {
+    if (promptFight === "FIGHT" || promptFight === "fight") {
 
         //Enemy Attack
         enemyHealth = enemyHealth - playerAttack;
@@ -43,7 +47,7 @@ var fight = function() {
             window.alert(playerName + " still has " + playerHealth +" health left.");
         }
     }
-    else if (promptFight = "SKIP" || promptFight = "skip") {
+    else if (promptFight === "SKIP" || promptFight === "skip") {
         //Confirm skip
         var confirmSkip = window.confirm("Are you sure you'd like to skip?");
             if (confirmSkip) {
@@ -60,5 +64,8 @@ var fight = function() {
     }
 }
 
-//LEFT OFF AT 3.1.7
+for (i = 0; i < enemyNames.length; i++){
+    fight(enemyNames[i])
+}
+
 fight()
