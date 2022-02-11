@@ -14,7 +14,7 @@ var rounds = 0;
 
 //Creates fight()
 var fight = function(enemyName) {
-    window.alert("Welcome To Robot Gladiators! Round " + (i+1));
+    window.alert("Welcome To Robot Gladiators! Round " + (i+1) + ("!"));
     enemyName = enemyNames[i];
 
     while (enemyHealth > 0 && playerHealth > 0){
@@ -32,6 +32,7 @@ var fight = function(enemyName) {
             //Checks enemy health
             if (enemyHealth <= 0) {
                 window.alert(enemyName + " has died!");
+                window.prompt("You Have Defeated " + enemyName + "!")
                 break;
             }
             else {
@@ -51,6 +52,8 @@ var fight = function(enemyName) {
                 window.alert(playerName + " has died!");
                 break;
             }
+            
+            console.log();
         }
         else if (promptFight === "SKIP" || promptFight === "skip") {
             //Confirm skip
@@ -79,11 +82,18 @@ for (i = 0; i < enemyNames.length; i++) {
     if (playerHealth > 0) {
         fight(enemyNames[i]);
         enemyHealth = 50;
-        window.alert("You Have Defeated The Robots!");
     }
 
-    else {
-        window.alert("You Have Died! GAME OVER!")
+    else  {
         break;
     }
+
 }
+
+if (playerHealth <= 0) {
+    window.alert("YOU DIED! GAME OVER!")
+}
+else {
+    window.alert("Congrats, You Have Defeated The Robots! Game Over!")
+}
+
